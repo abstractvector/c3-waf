@@ -1,0 +1,17 @@
+{
+	debug
+	auto_https off
+	order coraza_waf first
+}
+
+:80 {
+	coraza_waf {
+		directives `
+		SecRule REQUEST_URI "/denied" "id:2, deny, log, phase:1"
+		`
+		include /etc/caddy/coraza.conf
+		include /etc/caddy/coreruleset/crs-setup.conf
+		include /etc/caddy/coreruleset/rules/*.conf
+	}
+	respond "Hello, world!"
+}
