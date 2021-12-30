@@ -30,9 +30,9 @@ RUN wget -O libinjection.tar.gz https://github.com/libinjection/libinjection/arc
 # download, build and install coraza and caddy
 RUN mkdir -p /go/src/github.com/jptosso && \
   cd /go/src/github.com/jptosso && \
-  git clone --depth 1 https://github.com/jptosso/coraza-caddy && \
+  git clone https://github.com/jptosso/coraza-caddy && \
   cd coraza-caddy && \
-  git checkout -q 51db837 && \
+  git checkout 132f1f6 && \
   go get -d github.com/caddyserver/caddy/v2@v${CADDY_VERSION} && \
   sed -i 's/\/\/ _ "github.com/_ "github.com/g' caddy/main.go && \
   go mod tidy && \

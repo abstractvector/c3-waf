@@ -1,4 +1,5 @@
 {
+	admin off
 	debug
 	auto_https off
 	order coraza_waf first
